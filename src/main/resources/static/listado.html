@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>head-Title</title>
+    </head>
+    <body>
+        hola
+        <article >
+            <header>heady</header>
+            <img src="soon.png"></article>
+            <footer>footi</footer>
+            
+            <script>
+                function recorrer(nodo, nivel = 0) {
+                    console.log(
+                        " ".repeat(nivel * 2) +
+                        nodo.nodeName +
+                        ` (tipo ${nodo.nodeType})`
+                    );
+                    
+                    for (const hijo of nodo.childNodes) {
+                        recorrer(hijo, nivel + 1);
+                    }
+                }
+            </script>
+    </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+        }
+
+        header {}
+        nav {}
+        main {}
+        section {}
+        article {}
+        aside {}
+        footer {}
+
+        .container {}
+        .hidden {}
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <article>
+                <h1></h1>
+                <p></p>
+            </article>
+        </section>
+
+        <aside>
+            <div></div>
+        </aside>
+    </main>
+
+    <footer>
+        <p></p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+        });
+
+        function init() {
+
+        }
+
+        function handleClick(event) {
+
+        }
+
+        function updateUI() {
+
+        }
+    </script>
+
+</body>
+</html>
+-->
