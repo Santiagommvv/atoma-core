@@ -1,4 +1,4 @@
-package io.atoma.core.models;
+package io.atoma.core.dominio.entity;
 
 public enum CategoriaCliente {
     VIP,

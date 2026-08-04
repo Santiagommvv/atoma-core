@@ -1,13 +1,16 @@
-package io.atoma.core.models;
+package io.atoma.core.dto;
+
+import io.atoma.core.dominio.entity.CategoriaCliente;
+import io.atoma.core.dominio.entity.StatusCliente;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
-public record Cliente(
-        //@Id
-        Integer id,
+public record ClienteDto(
+        UUID id,
         String nombre,
         String email,
-        String docNumero,
+        String numeroDocumento,
         StatusCliente status,
         CategoriaCliente categoria,
         LocalDateTime creadoAt,

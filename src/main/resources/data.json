@@ -1,0 +1,68 @@
+[
+{
+"id": "1e7d3c10-9c3a-4f1a-8a2a-1f3b9c7d0001",
+"nombre": "Santiago Morales",
+"email": "santiago.morales@example.com",
+"telefono": "+54 11 5555-0001",
+"status": "LEAD",
+"categoriaCliente": "BUSINESS",
+"creadoAt": "2023-01-27T10:15:30",
+"modificadoAt": null,
+"notas": "Cliente potencial interesado en servicios premium"
+},
+{
+"id": "1e7d3c10-9c3a-4f1a-8a2a-1f3b9c7d0002",
+"nombre": "Ana Pérez",
+"email": "ana.perez@example.com",
+"telefono": "+54 11 5555-0002",
+"status": "ACTIVE",
+"categoriaCliente": "VIP",
+"creadoAt": "2023-02-10T14:20:00",
+"modificadoAt": "2023-03-01T09:00:00",
+"notas": "Cliente activo con historial de compras"
+},
+{
+"id": "1e7d3c10-9c3a-4f1a-8a2a-1f3b9c7d0003",
+"nombre": "Carlos Gómez",
+"email": "carlos.gomez@example.com",
+"telefono": "+54 11 5555-0003",
+"status": "INACTIVE",
+"categoriaCliente": "STANDARD",
+"creadoAt": "2023-03-05T08:45:10",
+"modificadoAt": null,
+"notas": "Cliente inactivo, revisar reactivación"
+},
+{
+"id": "1e7d3c10-9c3a-4f1a-8a2a-1f3b9c7d0004",
+"nombre": "Lucía Fernández",
+"email": "lucia.fernandez@example.com",
+"telefono": "+54 11 5555-0004",
+"status": "LEAD",
+"categoriaCliente": "BUSINESS",
+"creadoAt": "2023-04-12T11:30:00",
+"modificadoAt": null,
+"notas": "Solicitó información por email"
+},
+{
+"id": "1e7d3c10-9c3a-4f1a-8a2a-1f3b9c7d0005",
+"nombre": "Martín López",
+"email": "martin.lopez@example.com",
+"telefono": "+54 11 5555-0005",
+"status": "ACTIVE",
+"categoriaCliente": "STANDARD",
+"creadoAt": "2023-05-20T16:10:45",
+"modificadoAt": "2023-06-01T12:00:00",
+"notas": "Cliente frecuente"
+},
+{
+"id": "1e7d3c10-9c3a-4f1a-8a2a-1f3b9c7d0006",
+"nombre": "Valeria Ruiz",
+"email": "valeria.ruiz@example.com",
+"telefono": "+54 11 5555-0006",
+"status": "LEAD",
+"categoriaCliente": "BUSINESS",
+"creadoAt": "2023-06-30T09:25:00",
+"modificadoAt": null,
+"notas": "Pendiente de contacto telefónico"
+}
+]
