@@ -1,42 +1,30 @@
 package io.atoma.core.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.web.bind.annotation.GetMapping;
+import io.atoma.core.dto.CrearClienteRequest;
+import io.atoma.core.dto.ClienteDto;
+import io.atoma.core.service.ClienteService;
+
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.Map;
-
 @RestController
-@RequestMapping("/listarClientes")
+@RequestMapping("/api/v1/clientes")
 public class ClienteController {
 
-    @GetMapping(value = "/raw", produces = "application/json")
-    public String test() throws Exception {
-        return new String(
-                getClass()
-                        .getClassLoader()
-                        .getResourceAsStream("data.json")
-                        .readAllBytes()
-        );
+    private final ClienteService clienteService;
+
+
+    public ClienteController(ClienteService clienteService){
+        this.clienteService = clienteService;
     }
 
-    @Autowired
-    JdbcTemplate jdbc;
-
-    @GetMapping(produces = "application/json")
-    public List<Map<String, Object>> getAll() {
-        return jdbc.queryForList("SELECT * FROM cliente");
+    @PostMapping
+    public ClienteDto crearCliente(CrearClienteRequest request){
+        return null;
     }
+
 }
-    /*private final ClienteCollectionRepository clienteCollectionRepository;
 
 
-
-    @GetMapping("/api/v1/listar")
-    public List<Cliente> listarClientes(ClienteCollectionRepository clienteCollectionRepository){
-        return clienteCollectionRepository.findAll();
-    }*/
 

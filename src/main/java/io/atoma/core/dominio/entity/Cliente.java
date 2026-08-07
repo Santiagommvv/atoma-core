@@ -9,7 +9,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.EnumType;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -21,46 +21,38 @@ public class Cliente
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
-    //id UUID PRIMARY KEY,
 
     @Column(name = "nombre", nullable = false)
     private String nombre;
-    //    nombre VARCHAR(120), debería cubrir 99,9% de los nombres completos globales
 
     @Column(name = "email")
     private String email;
-    //    email VARCHAR(254),  RFC 5321
 
     @Column(name = "telefono")
     private String telefono;
-    //    telefono VARCHAR(20), E.164 dice 15, agrego un poco más para seguridad
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status_cliente",  nullable = false)
     private StatusCliente status;
-    //    status VARCHAR(16),
 
     @Enumerated(EnumType.STRING)
     @Column(name = "categoria_cliente", nullable = false)
     private CategoriaCliente categoria;
-    //    categoria_cliente VARCHAR(16),
 
+    //Instant en lugar de LocalDateTime como tiempo UTC. Pasaría a LDT en presentación si quisiera.
     @Column(name = "created_at", updatable = false, nullable = false)
-    private LocalDateTime createdAt;
-    //    creado_at TIMESTAMP,
+    private Instant createdAt;
 
     @Column(name = "modified_at")
-    private LocalDateTime modifiedAt;
-    //    modificado_at TIMESTAMP,
+    private Instant modifiedAt;
 
-    //    notas VARCHAR(500)
     @Column(name = "notas", length=500)
     private String notas;
 
     //constructores
     public Cliente(){}
 
-    public Cliente(UUID id, String nombre, String email, String telefono, StatusCliente status, CategoriaCliente categoria, LocalDateTime createdAt, LocalDateTime modifiedAt, String notas) {
+    public Cliente(UUID id, String nombre, String email, String telefono, StatusCliente status, CategoriaCliente categoria, Instant createdAt, Instant modifiedAt, String notas) {
         this.id = id;
         this.nombre = nombre;
         this.email = email;
@@ -121,19 +113,19 @@ public class Cliente
         this.categoria = categoria;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public Instant getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
     }
 
-    public LocalDateTime getModifiedAt() {
+    public Instant getModifiedAt() {
         return modifiedAt;
     }
 
-    public void setModifiedAt(LocalDateTime modifiedAt) {
+    public void setModifiedAt(Instant modifiedAt) {
         this.modifiedAt = modifiedAt;
     }
 

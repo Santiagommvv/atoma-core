@@ -1,26 +1,17 @@
 package io.atoma.core.dto;
 
 import io.atoma.core.dominio.entity.CategoriaCliente;
-import io.atoma.core.dominio.entity.Cliente;
 import io.atoma.core.dominio.entity.StatusCliente;
-import io.atoma.core.repository.ClienteRepository;
 
 import java.time.Instant;
 
-public record ClienteDto(
+public record CrearClienteRequest (
         String nombre,
         String email,
         String telefono,
         StatusCliente status,
         CategoriaCliente categoria,
-        Instant createdAt,
+        Instant createdAt,    //este "tampoco" correspondería
         String notas
-
-) {
-
-    //variante "viva"
-    //public static ClienteDto from(Cliente cliente) {
-        //return new ClienteDto(cliente.get... etc);
-    //}
-}
+){}
 

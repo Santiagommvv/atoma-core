@@ -1,0 +1,81 @@
+viejo controller hardcodeado:
+
+//    @GetMapping(value = "/raw", produces = "application/json")
+//    public String test() throws Exception {
+//        return new String(
+//                getClass()
+//                        .getClassLoader()
+//                        .getResourceAsStream("data.json")
+//                        .readAllBytes()
+//        );
+//    }
+//
+//    @Autowired
+//    JdbcTemplate jdbc;
+//
+//    @GetMapping(produces = "application/json")
+//    public List<Map<String, Object>> getAll() {
+//        return jdbc.queryForList("SELECT * FROM cliente");
+//    }
+
+
+clienteserviceimpl
+
+@Override
+public CrearClienteResponse crearCliente(CrearClienteRequest request) {
+
+    // 1. armo entity con lo que vino
+    Cliente cliente = new Cliente(
+        request.nombre(),
+        request.email(),
+        request.telefono(),
+        request.status(),
+        request.categoria(),
+        Instant.now(), // lo agregás vos
+        request.notas()
+    );
+
+    // 2. guardo en DB
+    Cliente guardado = clienteRepository.save(cliente);
+
+    // 3. armo response con lo guardado
+    return new CrearClienteResponse(
+        guardado.getId(),
+        guardado.getNombre(),
+        guardado.getEmail(),
+        guardado.getTelefono(),
+        guardado.getStatus(),
+        guardado.getCategoria(),
+        guardado.getCreatedAt(),
+        guardado.getNotas()
+    );
+}
+A quién “le tirás los cachos”
+El Controller le pasa el Request al Service
+El Service:
+usa el Request → crea Entity
+usa el Repository → guarda
+usa la Entity guardada → crea Response
+El Controller devuelve el Response
+Dónde entra el mapper
+
+Solo para no escribir esto a mano:
+
+Cliente cliente = mapper.toEntity(request);
+CrearClienteResponse response = mapper.toResponse(guardado);
+
+👉 Nada más.
+
+Qué NO tenés que hacer
+❌ DTO → DTO
+❌ guardar DTO en DB
+❌ meter Entity en Controller
+❌ tener 5 tipos distintos para lo mismo
+Resumen brutal
+Request → Entity → Repository → Entity → Response
+Request: entra
+Entity: se guarda
+Response: sale
+
+Si querés complicarlo después (arquitectura más “pro”), lo hacemos.
+Pero esto es lo correcto y suficiente para el 90% de los casos reales.

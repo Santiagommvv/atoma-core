@@ -1,4 +1,4 @@
-package io.atoma.core.respository;
+package io.atoma.core.repository;
 
 import io.atoma.core.dominio.entity.Cliente;
 import org.springframework.context.annotation.Profile;
